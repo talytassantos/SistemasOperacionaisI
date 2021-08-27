@@ -78,13 +78,13 @@ public class RedesController {
 		if (os.contains("Win")) {
 
 			try {
-				Process processo = Runtime.getRuntime().exec("ping -n 10 www.autocj.co.jp");
+				Process processo = Runtime.getRuntime().exec("ping -n 10 www.google.com");
 				InputStream fluxo = processo.getInputStream();
 				InputStreamReader leitor = new InputStreamReader(fluxo);
 				BufferedReader buffer = new BufferedReader(leitor);
 				String linha = buffer.readLine();
 				while (linha != null) {
-					if ((linha.contains("ximo")) || (linha.contains("average"))) {
+					if ((linha.contains("dia")) || (linha.contains("average"))) {
 						String mdping = ExtraiPing(linha);
 						System.out.println("Média de ping: " + mdping);
 					}
@@ -99,13 +99,13 @@ public class RedesController {
 			}
 		} else if (os.contains("Linux")) {
 			try {
-				Process processo = Runtime.getRuntime().exec("ping -c 10 www.autocj.co.jp");
+				Process processo = Runtime.getRuntime().exec("ping -c 10 www.google.com");
 				InputStream fluxo = processo.getInputStream();
 				InputStreamReader leitor = new InputStreamReader(fluxo);
 				BufferedReader buffer = new BufferedReader(leitor);
 				String linha = buffer.readLine();
 				while (linha != null) {
-					if (linha.contains("rtt")) {
+					if (linha.contains("avg")) {
 						String mdping = ExtraiPing(linha);
 						System.out.println("Média de ping: " + mdping);
 					}
